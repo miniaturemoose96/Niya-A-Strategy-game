@@ -86,5 +86,44 @@ public class GameBoard{
 		}
 		return false;
 	}
-	//method that checks it the board contains diagonal, horizontal, vertical and 2x2 winner 
+	//method that checks it the board contains diagonal, horizontal, vertical and 2x2 winner
+	public static boolean checkWinner(Player player){
+		//check diagonals
+		if(niyaBoard[0][0].equals(niyaBoard[1][1]) && niyaBoard[2][2].equals(niyaBoard[3][3])) {
+			return true;
+		}
+		else if(niyaBoard[0][3].equals(niyaBoard[1][2]) && niyaBoard[2][0].equals(niyaBoard[3][0])) {
+			return true;
+		}
+		else{
+			//check row
+			for(int i = 0; i < 4; i++){
+				if(niyaBoard[i][0].equals(niyaBoard[i][1]) && niyaBoard[i][2].equals(niyaBoard[i][3])){
+					return true;
+				}
+			}//check column
+			for(int i = 0; i < 4; i++){
+				if(niyaBoard[0][i].equals(niyaBoard[1][i]) && niyaBoard[2][i].equals(niyaBoard[3][i])){
+					return true;
+				}
+			}
+			//check 2x2 winner
+			for(int i = 0; i < 4; i++){
+				if(niyaBoard[0][i].equals(niyaBoard[0][i]) && niyaBoard[1][i].equals(niyaBoard[1][i])){
+					return true;
+				}
+			}
+			for(int i = 0; i < 4; i++){
+				if(niyaBoard[1][i].equals(niyaBoard[1][i]) && niyaBoard[2][i].equals(niyaBoard[2][i])){
+					return true;
+				}
+			}
+			for(int i = 0; i < 4; i++){
+				if(niyaBoard[2][i].equals(niyaBoard[2][i]) && niyaBoard[3][i].equals(niyaBoard[3][i])){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }
